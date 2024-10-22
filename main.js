@@ -17,7 +17,7 @@ function askNumber() {
 }
 
 // Appel de la fonction pour tester 
-askNumber()
+
 
 // Etape 2 
 // Création d'une fonction didIWin
@@ -27,16 +27,17 @@ function didIWin(givenNumber) {
     // Condition
     if (givenNumber < targetNumber) {
         alert("Plus grand")
-        return false // Pas encore trouvé
+         // Pas encore trouvé
     }
     else if (givenNumber > targetNumber) {
         alert("Plus petit")
-        return false // Pas encore trouvé
+        // Pas encore trouvé
     }
     else {
         alert("Bravo ! Vous avez deviné le nombre")
         return true // Nombre trouvé
     }
+    return false
 }
 
 // Etape 3
@@ -48,11 +49,17 @@ function gameplay() {
 
     while (!found) {
         // Demander un nombre à l'utilisateur
-        let userGuess = askNumber()
         // Vérifier si il a gagné
+        let userGuess = askNumber()
         found = didIWin(userGuess)
     }
 }
 
 // Appel fonction pour commancer le jeu
 gameplay()
+
+// Etape 4
+// Fonction demandant au joueur 1 de donner un nombre entre 0 et 50 tant qu'il ne respect pas ce range
+let guessComputer = () => {
+    while (userGuess < 0 || userGuess > 50)
+}
