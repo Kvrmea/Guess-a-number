@@ -1,33 +1,39 @@
-// Etape 1 : Création de la fonction qui demande un nombre
-function askNumber() {
-    let utilisateur = prompt("Veuillez entrer un nombre :")
+// Etape 1 : Fonction qui demande au joueur 1 de fournir un nombre entre 0 et 50
+function askNumberFromPlayer1() {
+    let targetNumber
+    do {
+        targetNumber = Number(prompt("Joueur 1, veuillez entrer un nombre (entre 0 et 50) :"))
+        if (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50) {
+            alert("Nombre invalide. Veuillez entrer un nombre entre 0 et 50.")
+        }
+     }
+    while (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50)
 
-    // Convertir l'entrée en nombre (prompt retourne une chaîne de caractère)
+    return targetNumber
+}
+
+// Etape 2 Fonction ajouter : demande un nombre au joueur 2
+function askNumberFromPlayer2() {
+    let utilisateur = prompt("Joueur 2, Veuillez entrer un nombre :")
+
+    // Convertir l'entrée en nombre (prompt retourne une chaîne de caractères)
     let givenNumber = Number(utilisateur)
 
-    // Vérifier si la convertion est correcte (si c'est bien un nombre)
-    if(isNaN(givenNumber)) {
+    //Vérifier si la conversion est correct
+    if (isNaN(givenNumber)) {
         alert("Ce n'est pas un nombre valide. Veuillez recommencer.")
-    }
-    else {
-        console.log("Le nombre saisi est :", givenNumber)
+        return askNumberFromPlayer2() // Recommencer si ce n'est pas un nombre
     }
 
     return givenNumber
 }
 
-// Appel de la fonction pour tester 
-
-
-// Etape 2 
-// Création d'une fonction didIWin
-function didIWin(givenNumber) {
-    const targetNumber = 22 // Nombre à deviner, on a choisit 22
-
+// Etape 3
+// Fonction qui prend deux paramètres
+function didIWin(givenNumber, targetNumber) {
     // Condition
     if (givenNumber < targetNumber) {
         alert("Plus grand")
-         // Pas encore trouvé
     }
     else if (givenNumber > targetNumber) {
         alert("Plus petit")
@@ -40,9 +46,12 @@ function didIWin(givenNumber) {
     return false
 }
 
-// Etape 3
- // Fonction qui gère le jeu 
+// Etape 4
+ // Fonction qui gère le jeu avec 2 joueurs
 function gameplay() {
+    // Joueur 1 choisit le nombre à deviner
+    let targetNumber = askNumberFromPlayer1()
+
     let found = false // Vérification si le nombre a été trouvé
 
 // Boucle jusqu'à ce que le nombre soit trouvé 
@@ -50,16 +59,10 @@ function gameplay() {
     while (!found) {
         // Demander un nombre à l'utilisateur
         // Vérifier si il a gagné
-        let userGuess = askNumber()
-        found = didIWin(userGuess)
+        let userGuess = askNumberFromPlayer2() // Joueur 2 fait une tentative
+        found = didIWin(userGuess, targetNumber) // Vérifie s'il a gagné
     }
 }
 
 // Appel fonction pour commancer le jeu
 gameplay()
-
-// Etape 4
-// Fonction demandant au joueur 1 de donner un nombre entre 0 et 50 tant qu'il ne respect pas ce range
-let guessComputer = () => {
-    while (userGuess < 0 || userGuess > 50)
-}
