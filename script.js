@@ -1,6 +1,8 @@
 // Variables globales
 let targetNumber = null // Nombre que le joueur 1 choisit
 let attempts = 0 // Compteur de tentatives
+let minRange = 0 // Range min
+let maxRange = 50 // Range max
 
 // Etape 1 : Fonction qui demande au joueur 1 de fournir un nombre entre 0 et 50
 function askNumberFromPlayer1() {
@@ -10,6 +12,17 @@ function askNumberFromPlayer1() {
             alert("Nombre invalide. Veuillez entrer un nombre entre 0 et 50.")
         }
     } while (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50)
+
+    // Range min/max
+    minRange = 0
+    maxRange = 50
+    updateRangeDisplay()
+}
+
+// Fonction pour mettre à jour l'affichage du range
+function updateRangeDisplay() {
+    document.getElementById("minRange").textContent = minRange
+    document.getElementById("maxRange").textContent = maxRange
 }
 
 // Etape 2 Fonction ajouter : demande un nombre au joueur 2
@@ -36,6 +49,12 @@ function validerPlayer2Input() {
         return
      }
 
+     // Vérifie si la proposition est dans le range
+     if (player2Guess < minRange || player2Guess > maxRange) {
+        alert(`Roh... Ton nombre est en dehors du range actuel. Le nombre doit être entre ${minRange} et ${maxRange}.`)
+        return
+     }
+
      // Incrémenter le compteur de tentatives
      attempts++
      attemptsSpan.textContent = attempts
@@ -43,9 +62,19 @@ function validerPlayer2Input() {
     // Comparer avec le nomber choisit
     if (player2Guess < targetNumber) {
         feedback.textContent = "Plus grand !"
+        // MAJ du range min si le nombre proposé est plus grand que minRange
+        if(player2Guess > minRange) {
+            minRange = player2Guess
+            updateRangeDisplay()
+        }
     }
     else if (player2Guess > targetNumber) {
         feedback.textContent = "Plus petit !"
+        // MAJ range max si le nombre proposé est plus grand que maxRange
+        if (player2Guess < maxRange) {
+            maxRange = player2Guess
+            updateRangeDisplay()
+        }
     }
     else {
         feedback.textContent = "Bravo ! T'es le meilleur, tu a trouvé le nombre."

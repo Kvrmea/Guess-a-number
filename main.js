@@ -41,6 +41,11 @@ function restartGame() {
     askNumberFromPlayer1()
 }
 
+// Lancement du jeu lors du chargement de la page
+document.addEventListener("DOMContentLoaded", function() {
+    initializeGame()
+})
+
 // Lancement du jeu
 function initializeGame() {
     askNumberFromPlayer1() // Joueur 1 choisit le nombre
@@ -52,5 +57,6 @@ function initializeGame() {
     document.getElementById("restartBtn").addEventListener("click", restartGame)
 }
 
-// Lancer le jeu lors du chargement de la page
-initializeGame()
+/* Lancer le jeu lors du chargement de la page
+pas besoin de l'appelé ici, elle est appelé au dessus avec l'event : DOMContentLoaded
+initializeGame() */
