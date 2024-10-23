@@ -3,9 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
     <title>Guess a Number</title>
 </head>
 <body>
+    <h1>Devines mon nombre, t'en fais pas c'est pas compliqué</h1>
+
+    <!-- Affichage pour le joueur 2 -->
+    <div id="game">
+        <p>Le nombre est entre <span id="minRange">0</span> et <span id="maxRange">50</span>.</p>
+        <p>Nombre de tentatives : <span id="attempts">0</span></p>
+
+        <input type="number" id="player2Input" placeholder="Entrez un nombre" min="0" max="50">
+        <button id="validerBtn">Valider</button>
+
+        <p id="feedback"></p>
+    </div>
+
+    <!-- Message de victoire -->
+     <div id="victory" style="display: none;">
+        <h2>Bravo ! Tu as deviné mon nombre ! Tu vois ? Rien n'était compliqué.</h2>
+        <button id="restartBtn">Veux-tu rejouer ?</button>
+     </div>
+
+
     <script src="script.js"></script>
     <script src="main.js"></script>
 </body>

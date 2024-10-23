@@ -1,0 +1,104 @@
+/* Style pour l'ensemble de la page */
+body {
+    font-family: "Arial", sans-serif;
+    /*background-color: #f4f4f9;*/
+    background: linear-gradient(135deg, #007bff, #6a0dad);
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    margin: 0;
+}
+
+h1 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#game, #victory {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgb(0, 0, 0, 0.1);
+    max-width: 400px;
+    text-align: center;
+    width: 100%;
+}
+
+p {
+    color: #555;
+    font-size: 1em;
+}
+
+#minRange, #maxRange, #attempts {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Input style */
+input[type="number"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color:#007bff;
+}
+
+/* Boutons de validation et de redémarrage */
+button {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1em;
+    padding: 10px 20px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3 ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#feedback {
+    font-size: 1.1em;
+    color: #ff5722;
+    margin-top: 15px;
+}
+
+/* Message de victoire */
+#victory h2 {
+    color: #28a745;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+#victory button {
+    background-color: #28a745;
+}
+
+#victory button:hover {
+    background-color: #218838;
+}
+
+/* Responsive design */
+@media (max-width: 500px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
