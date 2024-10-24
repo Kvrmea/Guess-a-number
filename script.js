@@ -4,25 +4,44 @@ let attempts = 0 // Compteur de tentatives
 let minRange = 0 // Range min
 let maxRange = 50 // Range max
 
+// Fonction pour mettre à jour l'affichage du range
+function updateRangeDisplay() {
+    document.getElementById("minRange").textContent = minRange
+    document.getElementById("maxRange").textContent = maxRange
+}
+
 // Etape 1 : Fonction qui demande au joueur 1 de fournir un nombre entre 0 et 50
 function askNumberFromPlayer1() {
-    do {
+    const player1Input = document.getElementById("player1Input")
+    const player1FeedBack = document.getElementById("player1Feedback")
+
+    // On récupère la valeur saisie par le joueur 1
+    const player1Number = Number(player1Input.value)
+
+    // Valide si le nombre est bien entre 0 et 50
+    if (isNaN(player1Number) || player1Number < 0 || player1Number > 50) {
+        player1FeedBack.textContent = "Nombre invalide. Veuillez entrer un nombre entre 0 et 50."
+
+        return
+    }
+
+    // Si le nombre est valide, go lancer le jeu
+    targetNumber = player1Number
+    player1FeedBack.textContent = "" // Efface les messages d'erreur
+    document.getElementById("player1Section").style.display = "none" // Cache la section du joueur 1
+    document.getElementById("game").style.display = "block" // Montre la section du joueur 2
+   
+   /* do {
         targetNumber = Number(prompt("Joueur 1, veuillez entrer un nombre (entre 0 et 50) :"))
         if (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50) {
             alert("Nombre invalide. Veuillez entrer un nombre entre 0 et 50.")
         }
-    } while (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50)
+    } while (isNaN(targetNumber) || targetNumber < 0 || targetNumber > 50) */
 
     // Range min/max
     minRange = 0
     maxRange = 50
     updateRangeDisplay()
-}
-
-// Fonction pour mettre à jour l'affichage du range
-function updateRangeDisplay() {
-    document.getElementById("minRange").textContent = minRange
-    document.getElementById("maxRange").textContent = maxRange
 }
 
 // Etape 2 Fonction ajouter : demande un nombre au joueur 2
@@ -51,7 +70,7 @@ function validerPlayer2Input() {
 
      // Vérifie si la proposition est dans le range
      if (player2Guess < minRange || player2Guess > maxRange) {
-        alert(`Roh... Ton nombre est en dehors du range actuel. Le nombre doit être entre ${minRange} et ${maxRange}.`)
+        alert(`Roh... Ton nombre est en dehors du range actuel. Le nombre doit être entre ${minRange} et ${maxRange}.`) 
         return
      }
 

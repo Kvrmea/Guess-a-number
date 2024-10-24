@@ -36,26 +36,28 @@ function restartGame() {
     // Cache le message de victoire et réaffiche le jeu
     gameDiv.style.display = "block"
     victoryDiv.style.display = "none"
-
-    // Redemande un nombre au joueur 1
-    askNumberFromPlayer1()
+    document.getElementById("player1Section").style.display = "block"
 }
 
 // Lancement du jeu lors du chargement de la page
 document.addEventListener("DOMContentLoaded", function() {
-    initializeGame()
-})
-
-// Lancement du jeu
-function initializeGame() {
-    askNumberFromPlayer1() // Joueur 1 choisit le nombre
+    // Validation du nombre du joueur 1
+    document.getElementById("submitPlayer1Btn").addEventListener("click", askNumberFromPlayer1)
 
     // Ajout un event listener pour valider le nombre de Joueur 2
     document.getElementById("validerBtn").addEventListener("click", validerPlayer2Input)
 
     // Ajout un event listener pour redémarrer le jeu après une victoire
     document.getElementById("restartBtn").addEventListener("click", restartGame)
-}
+})
+
+    /* Redemande un nombre au joueur 1
+    askNumberFromPlayer1() */
+
+// Lancement du jeu
+//function initializeGame() {
+
+    // askNumberFromPlayer1() // Joueur 1 choisit le nombre
 
 /* Lancer le jeu lors du chargement de la page
 pas besoin de l'appelé ici, elle est appelé au dessus avec l'event : DOMContentLoaded

@@ -1,14 +1,108 @@
 /* Style pour l'ensemble de la page */
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: "Arial", sans-serif;
     /*background-color: #f4f4f9;*/
-    background: linear-gradient(135deg, #007bff, #6a0dad);
+    /*background: linear-gradient(135deg, #007bff, #6a0dad);*/
+    /*background: linear-gradient(to top, #09203f 0%, #537895 100%);*/
+    /*background: linear-gradient(to top, #c471f5 0%, #fa71cd 100%);*/
+    background: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
     display: flex;
-    /*flex-direction: column;*/
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 600px;
     margin: 0;
+    overflow-x: hidden; /* Emphêche le défilement horizontal */
+}
+
+#header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+footer {
+    background-color: #0e566a;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+#rules {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+#rules h2 {
+    color: #0e566a;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#rules ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #555;
+    font-size: 0.9em;
+}
+
+#rules li {
+    margin-bottom: 5px;
+}
+
+#logoFooter {
+    width: 100px;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #80d0c7;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+#title {
+    color: #0e566a;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    position: relative;
+    animation: moveTitle 8s linear infinite;
+}
+
+/* Animation de déplacement de droite à gauche */
+@keyframes moveTitle {
+    0% {
+        left: 100%;
+    }
+    100% {
+        left: -100%;
+    }
 }
 
 h1 {
@@ -34,6 +128,11 @@ p {
 }
 
 #minRange, #maxRange, #attempts {
+    font-weight: bold;
+    color: #007bff;
+}
+
+#color, #colorPop {
     font-weight: bold;
     color: #007bff;
 }

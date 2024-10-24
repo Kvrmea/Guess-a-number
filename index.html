@@ -7,10 +7,32 @@
     <title>Guess a Number</title>
 </head>
 <body>
+    <div id="header">
+    <h1 id="title">Guess my Number</h1>
     <h1>Devines mon nombre, t'en fais pas c'est pas compliqué</h1>
 
+    <!-- Règles du jeu -->
+     <div id="rules">
+        <h2>Règles du Jeu</h2>
+        <ul>
+            <li>Le joueur 1 choisit un nombre entre 0 et 50.</li>
+            <li>Le joueur 2 doit deviner ce nombre.</li>
+            <li>Après chaque tentatives, le joueur 1 donnera un indice.</li>
+            <li>Le jeu se termine lorsque le joueur 2 devine le bon nombre</li>
+        </ul>
+     </div>
+    </div>
+    <!-- Affichage pour le joueur 1 -->
+     <div id="player1Section">
+        <p>My OG, choisis un nombre pour le joueur 2 entre <span id="color">0</span> et <span id="colorPop">50</span> :</p>
+        <input type="number" id="player1Input" placeholder="Entrez un nombre" min="0" max="50">
+        <button id="submitPlayer1Btn">Valider le nombre</button>
+
+        <p id="player1Feedback"></p>
+     </div>
+
     <!-- Affichage pour le joueur 2 -->
-    <div id="game">
+    <div id="game" style="display: none">
         <p>Le nombre est entre <span id="minRange">0</span> et <span id="maxRange">50</span>.</p>
         <p>Nombre de tentatives : <span id="attempts">0</span></p>
 
@@ -29,5 +51,12 @@
 
     <script src="script.js"></script>
     <script src="main.js"></script>
+    <footer>
+        <p>&copy; 2024 Guess a Number.</p>
+        <p>
+            <a href="https://adatechschool.fr/">ADA Tech School</a>
+        </p>
+        <img src="image/logo_ada.png" alt="Ada Tech School Logo" id="logoFooter">
+    </footer>
 </body>
 </html>
